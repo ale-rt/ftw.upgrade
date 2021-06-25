@@ -38,8 +38,14 @@ class Scanner(object):
         return infos
 
     def _find_upgrade_directories(self):
-        return list(filter(UPGRADESTEP_DATETIME_REGEX.match,
-                           glob('{0}/*/upgrade.py'.format(self.directory))))
+        return list(
+            filter(
+                UPGRADESTEP_DATETIME_REGEX.match,
+                glob(
+                    '{0}/**/upgrade.py'.format(self.directory), recursive=True
+                )
+            )
+        )
 
     def _build_upgrade_step_info(self, path):
         if six.PY2:
