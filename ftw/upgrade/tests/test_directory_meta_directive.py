@@ -14,6 +14,7 @@ from zope.interface import Interface
 from zope.interface import providedBy
 
 import six
+import os
 
 
 class IFoo(Interface):
@@ -44,6 +45,24 @@ class TestDirectoryMetaDirective(UpgradeTestCase):
 
                     {'source': ('20110101080000',),
                      'dest': ('20110202080000',),
+                     'title': u'Remove action.'}])
+
+    def test_upgrade_steps_are_registered_multiple_sources(self):
+        self.profile.with_upgrade(Builder('ftw upgrade step')
+                                  .to(os.path.join("v2011", "20110101080000"))
+                                  .named('add_action'))
+        self.profile.with_upgrade(Builder('ftw upgrade step')
+                                  .to(os.path.join("v2012", "20120101080000"))
+                                  .named('remove_action'))
+
+        with self.package_created():
+            self.assert_upgrades([
+                    {'source': ('10000000000000',),
+                     'dest': ('20110101080000',),
+                     'title': u'Add action.'},
+
+                    {'source': ('20110101080000',),
+                     'dest': ('20120101080000',),
                      'title': u'Remove action.'}])
 
     def test_first_source_version_is_last_regulare_upgrade_step(self):

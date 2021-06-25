@@ -21,6 +21,7 @@ class UpgradeStepBuilder(object):
     def __init__(self, session):
         self.session = session
         self.destination_version = None
+        self.subfolder = None
         self.name = None
         self.package = None
         self.profile_builder = None
@@ -34,7 +35,10 @@ class UpgradeStepBuilder(object):
         if hasattr(destination, 'strftime'):
             self.destination_version = destination.strftime(scaffold.DATETIME_FORMAT)
         else:
-            self.destination_version = destination
+            if os.sep in destination:
+                self.subfolder, self.destination_version,  = destination.partition(os.sep)[::2]  # noqa: E501
+            else:
+                self.destination_version = destination
         return self
 
     def named(self, name):
@@ -97,7 +101,12 @@ class UpgradeStepBuilder(object):
         self._register_files_and_dirs_in_package_builder(name)
 
     def _set_package(self):
-        self.package = self.profile_builder.package.get_subpackage('upgrades')
+        upgrades_package = self.profile_builder.package.get_subpackage('upgrades')
+        if self.subfolder:
+            self.package = upgrades_package.get_subpackage(self.subfolder)
+        else:
+            self.package = upgrades_package
+
         if self.profile_builder.name != 'default':
             self.package = self.package.get_subpackage(self.profile_builder.name)
 
