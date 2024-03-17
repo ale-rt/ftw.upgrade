@@ -5,6 +5,11 @@ Changelog
 3.4.0 (unreleased)
 ------------------
 
+- Do not depend on "Plone".
+  Do not depend on the "Plone" meta dependency which might pull in unwanted and
+  unnecessary other dependencies.
+  [thet]
+
 - Added the possibility to group upgrade steps in subdirectories.
   Fixes `issue 217 <https://github.com/4teamwork/ftw.upgrade/issues/217>`.
   [ale-rt]

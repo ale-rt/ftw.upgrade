@@ -79,7 +79,6 @@ setup(name='ftw.upgrade',
         'Zope2',
 
         # Plone
-        'Plone',
         'Products.GenericSetup',
         'plone.browserlayer',
         'Products.CMFCore',
