@@ -7,6 +7,8 @@ Changelog
 
 - Added the possibility to group upgrade steps in subdirectories.
   Fixes `issue 217 <https://github.com/4teamwork/ftw.upgrade/issues/217>`.
+- Do not break when plone.distribution is installed.
+  Fixes `issue 231 <https://github.com/4teamwork/ftw.upgrade/issues/231>`.
   [ale-rt]
 
 
