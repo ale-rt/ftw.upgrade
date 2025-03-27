@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-3.4.0 (unreleased)
-------------------
+3.4.0a1+slc.0 (2025-03-27)
+--------------------------
 
 - Added the possibility to group upgrade steps in subdirectories.
   Fixes `issue 217 <https://github.com/4teamwork/ftw.upgrade/issues/217>`.
