@@ -32,10 +32,13 @@ class ZopeAppAPI(APIView):
         try:
             from plone.distribution.api.site import get_sites
         except ImportError:
-            # Fallback for Plone installations that do not have plone.distribution
-            get_sites = self.context.restrictedTraverse('plone-overview').sites
+            get_sites = None
 
-        return get_sites()
+        if get_sites:
+            return get_sites(self.context)
+
+        # Fallback for Plone installations that do not have plone.distribution
+        return self.context.restrictedTraverse('plone-overview').sites
 
     def _get_plone_sites(self):
         for site in self.sites:
