@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-3.4.0 (unreleased)
-------------------
+3.4.0a2+slc.0 (2025-04-01)
+--------------------------
 
 - Fix method not called.
   Fixup for `issue 231 <https://github.com/4teamwork/ftw.upgrade/issues/231>`.
