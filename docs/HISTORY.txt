@@ -5,7 +5,9 @@ Changelog
 3.4.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix method not called.
+  Fixup for `issue 231 <https://github.com/4teamwork/ftw.upgrade/issues/231>`.
+  [ale-rt]
 
 
 3.4.0a1+slc.0 (2025-03-27)

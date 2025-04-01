@@ -38,7 +38,7 @@ class ZopeAppAPI(APIView):
             return get_sites(self.context)
 
         # Fallback for Plone installations that do not have plone.distribution
-        return self.context.restrictedTraverse('plone-overview').sites
+        return self.context.restrictedTraverse('plone-overview').sites()
 
     def _get_plone_sites(self):
         for site in self.sites:
