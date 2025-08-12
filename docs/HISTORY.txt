@@ -5,7 +5,8 @@ Changelog
 3.4.0a2+slc.1 (unreleased)
 --------------------------
 
-- Nothing changed yet.
+- Use Path 0.17
+  [ale-rt]
 
 
 3.4.0a2+slc.0 (2025-04-01)

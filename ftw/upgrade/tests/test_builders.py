@@ -20,7 +20,7 @@ class TestUpgradeStepBuilder(UpgradeTestCase):
         with self.package_created() as package:
             upgrade_path = package.package_path.joinpath(
                 'upgrades', '20110101000000_migrate_file_content_type')
-            self.assertTrue(upgrade_path.isdir(),
+            self.assertTrue(upgrade_path.is_dir(),
                             'Upgrade directory was not created {0}'.format(upgrade_path))
             self.assertMultiLineEqual(
                 '\n'.join(('from ftw.upgrade import UpgradeStep',
@@ -64,11 +64,11 @@ class TestUpgradeStepBuilder(UpgradeTestCase):
         with self.package_created() as package:
             upgrade_path = package.package_path.joinpath('upgrades',
                                                          '20110101000000_upgrade')
-            self.assertTrue(upgrade_path.isdir(),
+            self.assertTrue(upgrade_path.is_dir(),
                             'Upgrade directory was not created {0}'.format(upgrade_path))
 
             self.assertEqual('FOO', upgrade_path.joinpath('foo.txt').text())
-            self.assertTrue(upgrade_path.joinpath('bar').isdir(),
+            self.assertTrue(upgrade_path.joinpath('bar').is_dir(),
                             'directory "bar" was not created.')
             self.assertEqual('BAZ', upgrade_path.joinpath('baz', 'baz.txt').text())
 

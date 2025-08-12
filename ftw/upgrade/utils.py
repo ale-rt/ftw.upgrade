@@ -356,12 +356,12 @@ def get_tempfile_authentication_directory(directory=None):
     relative directory var/ftw.upgrade-authentication/.
     If the directory does not exist it is created.
     """
-    directory = Path(directory) or Path.getcwd()
-    if not directory.joinpath('bin', 'buildout').isfile():
+    directory = Path(directory) or Path(os.getcwd())
+    if not directory.joinpath('bin', 'buildout').is_file():
         return get_tempfile_authentication_directory(directory.parent)
 
     auth_directory = directory.joinpath('var', 'ftw.upgrade-authentication')
-    if not auth_directory.isdir():
+    if not auth_directory.is_dir():
         auth_directory.mkdir(mode=0o770)
 
     # Verify that "others" do not have any permissions on this directory.

@@ -1,5 +1,6 @@
 from __future__ import print_function
 from binascii import hexlify
+from xml.dom.minidom import Attr
 from ftw.upgrade.utils import get_tempfile_authentication_directory
 from path import Path
 from requests.auth import AuthBase
@@ -215,7 +216,7 @@ def extend_url_with_virtualhost_config(zope_url, public_url, site):
 
 
 def get_zope_url(instance_name=None):
-    instance = get_running_instance(Path.getcwd(), instance_name)
+    instance = get_running_instance(Path(os.getcwd()), instance_name)
     if not instance:
         raise NoRunningInstanceFound()
     return 'http://localhost:{0}/'.format(instance['port'])
@@ -255,15 +256,20 @@ def find_instance_zconfs(buildout_path, instance_name=None):
 
 def get_instance_port(zconf):
     # zope.conf
-    match = re.search(r'\saddress ([\d.]*:)?(\d+)', zconf.text())
+    try:
+        zconf_text = zconf.read_text()
+    except AttributeError:
+        zconf_text = zconf.text()
+
+    match = re.search(r'\saddress ([\d.]*:)?(\d+)', zconf_text)
     if match:
         return int(match.group(2))
     # wsgi.ini
-    match = re.search(r'\slisten = ([\d.]*:)?(\d+)', zconf.text())
+    match = re.search(r'\slisten = ([\d.]*:)?(\d+)', zconf_text)
     if match:
         return int(match.group(2))
     # wsgi.ini with fast listen
-    match = re.search(r'\sfast-listen = ([\d.]*:)?(\d+)', zconf.text())
+    match = re.search(r'\sfast-listen = ([\d.]*:)?(\d+)', zconf_text)
     if match:
         return int(match.group(2))
     return None
