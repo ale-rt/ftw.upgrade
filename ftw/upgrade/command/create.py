@@ -71,7 +71,7 @@ def create_command(args):
 
 
 def upgrades_path(path):
-    path = Path(path).abspath()
+    path = Path(path).absolute()
 
     if not path.is_dir():
         raise argparse.ArgumentTypeError(
