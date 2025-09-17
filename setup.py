@@ -60,7 +60,7 @@ setup(name='ftw.upgrade',
       install_requires=[
         'argcomplete',
         'inflection',
-        'path.py >= 6.2',
+        'path >= 17.0',
         'requests',
         'setuptools',
         'six >= 1.12.0',

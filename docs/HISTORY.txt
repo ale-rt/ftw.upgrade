@@ -5,13 +5,14 @@ Changelog
 3.4.0a3+slc1 (unreleased)
 -------------------------
 
-- Nothing changed yet.
+- Require path>= 17.0
+  [gyst]
 
 
 3.4.0a3+slc0 (2025-08-13)
 -------------------------
 
-- Use Path 0.17
+- Use path 17.0
   [ale-rt]
 
 
