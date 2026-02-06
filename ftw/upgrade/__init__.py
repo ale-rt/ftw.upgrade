@@ -1,11 +1,6 @@
-# pylint: disable=W0104
-# W0104: Statement seems to have no effect
+from zope.deferredimport import deprecated
 
-
-from ftw.upgrade.progresslogger import ProgressLogger
-from ftw.upgrade.step import UpgradeStep
-
-
-UpgradeStep
-
-ProgressLogger
+deprecated(
+    "Please import from collective.ftw.upgrade instead of ftw.upgrade. ",
+    UpgradeStep="collective.ftw.upgrade:UpgradeStep",
+)
