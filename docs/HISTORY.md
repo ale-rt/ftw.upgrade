@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.4.0a3+slc1 (unreleased)
+## 4.0.0+slc.0 (2026-02-09)
 
 -   Require path\>= 17.0 \[gyst\]
 
