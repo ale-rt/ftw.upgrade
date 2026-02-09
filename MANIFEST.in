@@ -1,0 +1,8 @@
+include *.in
+include Makefile
+recursive-include docs *.GPL
+recursive-include docs *.md
+recursive-include docs *.png
+recursive-include docs *.txt
+recursive-include ftw *.xml
+recursive-include ftw *.zcml
