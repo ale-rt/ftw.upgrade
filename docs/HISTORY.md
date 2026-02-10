@@ -1,6 +1,6 @@
 # Changelog
 
-## 4.0.0+slc.1 (unreleased)
+## 4.0.0+slc.1 (2026-02-10)
 
 
 - Provide an upgrade step that uninstalls ftw.upgrade and installs collective.ftw.upgrade.
