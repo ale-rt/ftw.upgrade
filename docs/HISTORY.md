@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0+slc.2 (unreleased)
+
+
+- Nothing changed yet.
+
+
 ## 4.0.0+slc.1 (2026-02-10)
 
 
