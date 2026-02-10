@@ -3,7 +3,8 @@
 ## 4.0.0+slc.1 (unreleased)
 
 
-- Nothing changed yet.
+- Provide an upgrade step that uninstalls ftw.upgrade and installs collective.ftw.upgrade.
+  [ale-rt]
 
 
 ## 4.0.0+slc.0 (2026-02-09)
