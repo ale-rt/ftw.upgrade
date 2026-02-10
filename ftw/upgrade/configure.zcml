@@ -13,6 +13,27 @@
         directory="profiles/default"
         description="An advanced upgrade control panel."
         provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+    <genericsetup:registerProfile
+        name="uninstall"
+        title="ftw.upgrade uninstall profile"
+        directory="profiles/uninstall"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        post_handler=".setuphandlers.uninstall"
+    />
+
+    <genericsetup:upgradeSteps
+        profile="ftw.upgrade:default"
+        source="*"
+        destination="3"
+    >
+
+        <genericsetup:upgradeStep
+            title="Uninstall ftw.upgrade and install collective.ftw.upgrade"
+            handler=".setuphandlers.uninstall"
         />
+
+    </genericsetup:upgradeSteps>
 
 </configure>
