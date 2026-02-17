@@ -1,6 +1,6 @@
 # Changelog
 
-## 4.0.0+slc.2 (unreleased)
+## 4.0.0+slc.2 (2026-02-17)
 
 
 - Deprecate the old namespace.

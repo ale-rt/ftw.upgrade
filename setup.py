@@ -3,7 +3,7 @@ from pathlib import Path
 
 import os
 
-version = "4.0.0+slc.2.dev0"
+version = "4.0.0+slc.2"
 
 extras_require = {}
 
